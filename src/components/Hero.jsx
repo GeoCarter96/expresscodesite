@@ -14,7 +14,9 @@ setMousePosition({x: e.clientX, y: e.clientY});
         window.addEventListener("mousemove", handleMouseMove);
 
         return () =>  window.removeEventListener("mousemove", handleMouseMove);
-    }, [])
+    }, []);
+
+    const currentFloatingCard = floatingCards[activeTab];
     return (
     <section className="relative min-h-screen flex items-center justify-center pt-16 sm:pt-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
 <div className="absolute inset-0 opacity-30" style={{
@@ -84,9 +86,10 @@ setMousePosition({x: e.clientX, y: e.clientY});
             </div> 
         </div> 
         {/* Floating Cards*/}
-       <div className={`hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-72 ${floatingCards(activeTab).bgColor}`}>
+       <div className={`hidden lg:block absolute bottom-4 right-4 transform translate-x-8 translate-y-8 w-72 ${currentFloatingCard.bgColor}`}>
 <div className="flex items-center space-x-2 mb-2">
-    <div>{floatingCards[activeTab].icon}</div>
+    <div>{currentFloatingCard.icon}</div>
+    <span>{currentFloatingCard.title}</span>
 </div>
        </div>
     </div>

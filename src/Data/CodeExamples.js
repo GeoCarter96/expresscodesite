@@ -84,7 +84,7 @@ export default function Navbar() {
       </button>
     </nav>
   );
-}`,
+}`
 };
 
 export const floatingCards = {
